@@ -6,6 +6,15 @@
 </template>
 
 <script setup lang="ts">
+import { useRouteParams } from '@vueuse/router'
+import { SHORT_LINKS } from '~/src/constants'
 definePageMeta({ layout: 'empty' })
-const { id } = useRouter().currentRoute.value.params
+
+const id = useRouteParams<string>('id', '', { transform: String })
+
+onBeforeMount(() => {
+  const link = SHORT_LINKS.get(id.value)
+  if (typeof link === 'undefined') location.href = '/'
+  else location.href = link
+})
 </script>

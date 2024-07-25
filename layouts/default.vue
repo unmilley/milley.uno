@@ -2,7 +2,9 @@
   <div>
     <div class="min-h-dvh p-1 pb-20">
       <div class="bg-hash w-full h-full fixed top-0 left-0 -z-50"></div>
+      <header-head />
       <slot />
+      <header-nav />
     </div>
   </div>
 </template>

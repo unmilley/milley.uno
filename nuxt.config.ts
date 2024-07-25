@@ -13,11 +13,27 @@ const devServer = {
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: false, telemetry: false, timeline: { enabled: false } },
-  modules: ['@nuxt/content', '@nuxtjs/tailwindcss', '@nuxt/image', '@nuxt/scripts', '@nuxtjs/i18n'],
+  modules: [
+    '@nuxt/content',
+    '@nuxt/image',
+    '@nuxtjs/tailwindcss',
+    '@nuxt/icon',
+    '@nuxtjs/color-mode',
+    '@vueuse/nuxt',
+    '@nuxtjs/i18n',
+    '@nuxt/scripts',
+  ],
   tailwindcss: {
     cssPath: ['@/assets/css/tailwind.css', { injectPosition: 'first' }],
     configPath: '@/tailwind.config.ts',
     viewer: false,
+  },
+  colorMode: {
+    preference: 'system',
+    fallback: 'dark',
+    classSuffix: '',
+    dataValue: 'theme',
+    storageKey: 'theme',
   },
   i18n: {
     vueI18n: '@/i18n.config.ts',

@@ -4,6 +4,7 @@
       <ui-scroll-bar :target="main" />
     </ClientOnly>
     <main-head />
+    <main-about />
   </div>
 </template>
 

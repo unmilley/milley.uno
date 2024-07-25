@@ -1,0 +1,19 @@
+{
+  "name": "milley.uno",
+  "private": true,
+  "version": "2.0.0",
+  "author": "Alexandr Lyadov <hello@milley.uno>",
+  "license": "WTFPL",
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "dev:host": "nuxt dev --host",
+    "build": "nuxt build",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "nuxt": "^3.12.4",
+    "vue": "latest"
+  }
+}

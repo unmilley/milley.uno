@@ -53,6 +53,12 @@ export default defineNuxtConfig({
       { code: 'ru', name: 'Русский', iso: 'ru_RU', file: 'ru_RU.ts' },
     ],
   },
+  runtimeConfig: {
+    public: {
+      gaTrackingId: process.env.NUXT_FB_MEASUREMENT_ID,
+      umamiId: process.env.NUXT_UMAMI_ID,
+    },
+  },
 
   devServer,
 })

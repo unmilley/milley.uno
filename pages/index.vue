@@ -5,6 +5,7 @@
     </ClientOnly>
     <main-head />
     <main-about />
+    <main-projects />
   </div>
 </template>
 

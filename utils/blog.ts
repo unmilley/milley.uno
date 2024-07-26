@@ -1,4 +1,4 @@
-import { createHash } from 'crypto'
+import Crypto from 'crypto-js'
 import getIp from './ip'
 
 type Metadata = {
@@ -13,16 +13,15 @@ export const getBlogPosts = async () => {
   return blogPosts.map(({ title, publishedAt, _path, summary }) => {
     const metadata: Metadata = { title: title ?? '', publishedAt, summary }
     const slug = _path ? _path.replace('/blog/', '') : ''
-    return { metadata, slug }
+    const path = _path ?? ''
+    return { metadata, slug, path }
   })
 }
 
 export const getSessionId = async (slug: string) => {
   const clientIP = await getIp()
 
-  const currentUserId = createHash('md5')
-    .update(clientIP + 'meow', 'utf-8')
-    .digest('hex')
+  const currentUserId = Crypto.MD5(clientIP + 'meow').toString(Crypto.enc.Hex)
 
   return `${slug}__${currentUserId}`
 }

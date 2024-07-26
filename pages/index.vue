@@ -6,6 +6,7 @@
     <main-head />
     <main-about />
     <main-projects />
+    <blog />
   </div>
 </template>
 

@@ -1,28 +1,37 @@
 <template>
   <section class="pt-8 pb-2">
-    <h1 class="mb-2 text-2xl font-bold">Frontend Developer & Designer</h1>
+    <h1 class="mb-2 text-2xl font-bold">Frontend Developer <span class="text-xs">&amp; Backend Developer</span></h1>
     <p class="mb-8 text-lg leading-relaxed">
       Howdy, I am Alexandr. I am building web applications using
-
-      <ui-badge-stack v-for="s in stacks.filter((_, i) => i !== stacks.length - 1)" :stack="s" />
+      <template v-for="s in stacks.filter((_, i) => i !== stacks.length - 1)" :key="s.title">
+        <ui-badge-stack :stack="s" />
+        {{ ' ' }}
+      </template>
       and
       <ui-badge-stack :stack="stacks[stacks.length - 1]" />. Connect with me for collaboration, part-time job, or just
       say hi.
     </p>
     <ul class="flex items-center flex-wrap gap-2">
-      <li v-for="link in links">
+      <li v-for="link in links" :key="link.title">
         <nuxt-link
           :title="link.title"
-          class="btn btn-ghost btn-sm px-2"
+          class="btn btn-ghost btn-sm px-2 group"
           :href="link.path"
           target="_blank"
           rel="noreferrer"
         >
-          <Icon :name="link.icon" size="1.35rem" />
+          <Icon :name="link.icon" size="1.35rem" class="group-hover:text-primary duration-200" />
           <span class="font-medium text-sm">
             {{ link.title }}
           </span>
         </nuxt-link>
+      </li>
+      <li v-for="social in socials" :key="social.title">
+        <div class="tooltip tooltip-bottom tooltip-base-content" :data-tip="social.title">
+          <nuxt-link :href="social.path" target="_blank" rel="noreferrer" class="btn btn-ghost btn-sm px-2 group">
+            <Icon :name="social.icon" size="1.35rem" class="group-hover:text-primary duration-200" />
+          </nuxt-link>
+        </div>
       </li>
     </ul>
   </section>
@@ -39,6 +48,10 @@ const stacks = [
 const links = [
   { title: 'Read.cv', icon: 'ph:read-cv-logo-fill', path: 'https://read.cv/milley' },
   { title: 'Github', icon: 'bx:bxl-github', path: 'https://github.com/unmilley' },
-  // {title: '', icon: '', path: ''},
+]
+
+const socials = [
+  { title: 'VK', icon: 'bx:bxl-vk', path: 'https://vk.com/unmilley' },
+  { title: 'Telegram', icon: 'bx:bxl-telegram', path: 'https://t.me/milleyz' },
 ]
 </script>

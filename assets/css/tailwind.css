@@ -57,6 +57,11 @@ html[data-theme='dark'] {
     --tooltip-text-color: var(--fallback-bc, oklch(var(--bc) / 1));
   }
 
+  .tooltip-base-content {
+    --tooltip-color: var(--fallback-bc, oklch(var(--bc) / 1));
+    --tooltip-text-color: var(--fallback-b1, oklch(var(--b1) / 1));
+  }
+
   .badge-base {
     --tw-border-opacity: 1;
     border-color: var(--fallback-bc, oklch(var(--bc) / var(--tw-border-opacity)));

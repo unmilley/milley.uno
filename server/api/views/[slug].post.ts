@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
     const slug = getRouterParam(event, 'slug')
     if (!slug) throw createError('ID is incorrect')
 
-    const sessionId = await getSessionId(slug)
+    const sessionId = await getSessionId(slug, getHeader(event, 'user-agent'))
 
     const session = await prisma.session.findUnique({ where: { id: sessionId } })
     const doesSessionExist = Boolean(session)

@@ -4,7 +4,6 @@ export default defineEventHandler(async (event) => {
   try {
     const slug = getRouterParam(event, 'slug')
     if (!slug) throw createError('ID is incorrect')
-    // const slug = z.string().parse(params.slug);
 
     const post = await prisma.post.findUnique({
       where: { slug },

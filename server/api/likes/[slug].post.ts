@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
     const slug = getRouterParam(event, 'slug')
     if (!slug) throw createError('ID is incorrect')
 
-    const sessionId = await getSessionId(slug)
+    const sessionId = await getSessionId(slug, getHeader(event, 'user-agent'))
 
     const [post, user] = await Promise.all([
       prisma.post.update({

@@ -18,10 +18,18 @@ export const getBlogPosts = async () => {
   })
 }
 
-export const getSessionId = async (slug: string) => {
+export const getBlogPost = async (_slug: string) => {
+  const { title, publishedAt, _path, summary } = await queryContent(`/blog/${_slug}`).findOne()
+  const metadata: Metadata = { title: title ?? '', publishedAt, summary }
+  const slug = _path ? _path.replace('/blog/', '') : ''
+  const path = _path ?? ''
+  return { metadata, slug, path }
+}
+
+export const getSessionId = async (slug: string, userAgent: string | undefined) => {
   const clientIP = await getIp()
 
-  const currentUserId = Crypto.MD5(clientIP + 'meow').toString(Crypto.enc.Hex)
+  const currentUserId = Crypto.MD5(clientIP + 'meow' + userAgent).toString(Crypto.enc.Hex)
 
   return `${slug}__${currentUserId}`
 }

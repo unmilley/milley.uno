@@ -38,6 +38,11 @@ export default defineNuxtConfig({
     dataValue: 'theme',
     storageKey: 'theme',
   },
+  icon: {
+    mode: 'svg',
+    collections: ['bx', 'bxs', 'ph', 'vscode-icons'],
+    customCollections: [{ prefix: 'mill', dir: './assets/icons' }],
+  },
   i18n: {
     vueI18n: '@/i18n.config.ts',
     lazy: true,

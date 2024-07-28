@@ -1,8 +1,5 @@
 <template>
-  <div ref="main">
-    <ClientOnly>
-      <ui-scroll-bar :target="main" />
-    </ClientOnly>
+  <div>
     <main-head />
     <main-about />
     <main-projects />
@@ -11,7 +8,5 @@
 </template>
 
 <script setup lang="ts">
-const main = ref<HTMLDivElement | null>(null)
-
 defineOgImage({ height: 630, width: 1200, url: 'static/og-image.png' })
 </script>

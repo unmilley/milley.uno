@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div ref="main">
+    <ClientOnly>
+      <ui-scroll-bar :target="main" />
+    </ClientOnly>
     <div class="min-h-dvh p-1 pb-20">
       <div class="bg-hash w-full h-full fixed top-0 left-0 -z-50"></div>
       <header-head />
@@ -9,7 +12,9 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const main = ref<HTMLDivElement>()
+</script>
 
 <style scoped>
 .bg-hash {

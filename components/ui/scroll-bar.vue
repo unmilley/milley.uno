@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-const { target } = defineProps<{ target: HTMLDivElement | null }>()
+const { target } = defineProps<{ target: HTMLDivElement | undefined }>()
 const readingProgress = ref(0)
 
 const scrollListener = () => {

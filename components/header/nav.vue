@@ -17,23 +17,16 @@
       </template>
 
       <template #end>
-        <ClientOnly>
-          <template #fallback>
-            <div class="skeleton-2 bg-base-100 size-8 btn btn-sm btn-outline"></div>
-            <div class="skeleton-2 bg-base-100 size-8 btn btn-sm btn-outline"></div>
-          </template>
-          <header-ui-lang-switcher />
-          <header-ui-theme-switcher :is-mobile="isMobile" />
-        </ClientOnly>
+        <header-ui-lang-switcher-btn />
+        <header-ui-theme-switcher-btn />
       </template>
     </HeaderNavbar>
+    <header-nav-mobile />
   </div>
 </template>
 
 <script setup lang="ts">
 import { NAVIGATION } from '@/src/constants'
-
-const isMobile = useBreakpoints({ sm: 640 }).smallerOrEqual('sm')
 </script>
 
 <style>

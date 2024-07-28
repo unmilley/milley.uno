@@ -16,7 +16,6 @@ const { $confetti } = useNuxtApp()
 const logo = ref<HTMLElement>()
 
 const explode = () => {
-  console.log('qwe')
   $confetti.addConfetti({
     emojis: ['🍪'],
   })

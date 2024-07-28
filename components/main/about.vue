@@ -1,6 +1,9 @@
 <template>
   <section class="pt-8 pb-2">
-    <h1 class="mb-2 text-2xl font-bold">Frontend Developer <span class="text-xs">&amp; Backend Developer</span></h1>
+    <h1 class="mb-2 text-2xl font-bold leading-[0.6] sm:leading-8">
+      Frontend Developer <br class="sm:hidden" />
+      <span class="text-xs">&amp; Backend Developer</span>
+    </h1>
     <p class="mb-8 text-lg leading-relaxed">
       Howdy, I am Alexandr. I am building web applications using
       <template v-for="s in stacks.filter((_, i) => i !== stacks.length - 1)" :key="s.title">
@@ -28,7 +31,13 @@
       </li>
       <li v-for="social in socials" :key="social.title">
         <div class="tooltip tooltip-bottom tooltip-base-content" :data-tip="social.title">
-          <nuxt-link :href="social.path" target="_blank" rel="noreferrer" class="btn btn-ghost btn-sm px-2 group">
+          <nuxt-link
+            :href="social.path"
+            target="_blank"
+            rel="noreferrer"
+            :title="social.title"
+            class="btn btn-ghost btn-sm px-2 group"
+          >
             <Icon :name="social.icon" size="1.35rem" class="group-hover:text-primary duration-200" />
           </nuxt-link>
         </div>

@@ -2,6 +2,8 @@
 // import { homedir } from 'os'
 // import { join } from 'path'
 
+const baseUrl = 'https://milley.uno'
+
 const devServer = {
   https: true,
   // https: {
@@ -22,6 +24,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/i18n',
     '@nuxt/scripts',
+    '@nuxtjs/seo',
   ],
   tailwindcss: {
     cssPath: ['@/assets/css/tailwind.css', { injectPosition: 'first' }],
@@ -61,4 +64,16 @@ export default defineNuxtConfig({
   },
 
   devServer,
+  site: {
+    url: baseUrl,
+    name: 'Alexandr Lyadov',
+    description: 'Frontend Developer (〜￣▽￣)〜',
+  },
+  schemaOrg: {
+    identity: {
+      type: 'Person',
+      name: 'Alexandr Lyadov',
+      url: baseUrl,
+    },
+  },
 })

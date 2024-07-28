@@ -12,4 +12,6 @@
 
 <script setup lang="ts">
 const main = ref<HTMLDivElement | null>(null)
+
+defineOgImage({ height: 630, width: 1200, url: 'static/og-image.png' })
 </script>

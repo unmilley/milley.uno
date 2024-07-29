@@ -19,6 +19,8 @@
 </template>
 
 <script lang="ts" setup>
+import { $ansi, $ansiStyle as $as } from 'assets/ts/ansi-log'
+
 useHead({
   titleTemplate: (titleChunk) => (titleChunk ? `Milley | ${titleChunk}` : 'Alexandr Lyadov'),
 })
@@ -29,7 +31,10 @@ const onBeforeEnter = async () => {
   await finalizePendingLocaleChange()
 }
 
-onMounted(() => {})
+onMounted(() => {
+  console.clear()
+  console.log($ansi, $as.top, $as.top_down, $as.center, $as.bottom_up, $as.bottom)
+})
 </script>
 
 <style>

@@ -12,7 +12,7 @@
 
       <div class="h-4 mx-1 w-px bg-base-content"></div>
 
-      {{ isCurrentUserLike ? 'Thanks!' : 'This was helpful?' }}
+      {{ buttonText }}
     </button>
   </div>
 </template>
@@ -24,6 +24,11 @@ const { likes, isCurrentUserLike, isLoading, increment: like } = await usePostLi
 const isLiked = computed(() => isCurrentUserLike.value || isLoading.value)
 
 const { $confetti } = useNuxtApp()
+const { t } = useI18n()
+
+const buttonText = computed(() => {
+  return isCurrentUserLike.value ? t('blog.btn.thanks') + '!' : t('blog.btn.was-helpful') + '?'
+})
 
 watch(
   () => isCurrentUserLike.value,

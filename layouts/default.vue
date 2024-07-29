@@ -3,7 +3,7 @@
     <ClientOnly>
       <ui-scroll-bar :target="main" />
     </ClientOnly>
-    <div class="min-h-dvh p-4 sm:p-1 pb-20">
+    <div class="min-h-dvh p-4 sm:p-1 pb-20 sm:pb-24">
       <div class="bg-hash w-full h-full fixed top-0 left-0 -z-50"></div>
       <header-head />
       <slot />

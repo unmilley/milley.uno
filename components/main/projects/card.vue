@@ -11,7 +11,7 @@
       <h3 class="text-lg font-medium">{{ project.title }}</h3>
       <div
         class="tooltip tooltip-left tooltip-primary delay-0 ml-auto cursor-pointer"
-        data-tip="In development"
+        :data-tip="$t('projects.inDev')"
         v-if="project.isDev"
         ref="badge"
       >
@@ -24,19 +24,19 @@
     <div class="flex items-center justify-between">
       <p class="btn btn-outline btn-disabled btn-xs h-8 text-xs" v-if="isNotSource">
         <Icon name="bx:bxl-github" size="1.25rem" />
-        Source code
+        {{ $t('projects.source') }}
       </p>
       <nuxt-link :to="project.source" target="_blank" class="btn btn-outline btn-xs h-8 text-xs" v-else>
         <Icon name="bx:bxl-github" size="1.25rem" />
-        Source code
+        {{ $t('projects.source') }}
       </nuxt-link>
 
       <p class="btn btn-ghost btn-disabled btn-xs h-8 text-xs" v-if="isNotPath">
-        Visit website
+        {{ $t('projects.website') }}
         <Icon name="bxs:right-arrow-circle" size="1.25rem" />
       </p>
       <nuxt-link :to="project.path" target="_blank" class="btn btn-ghost btn-xs h-8 text-xs" v-else>
-        Visit website
+        {{ $t('projects.website') }}
         <Icon name="bxs:right-arrow-circle" size="1.25rem" />
       </nuxt-link>
     </div>

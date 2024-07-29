@@ -1,8 +1,8 @@
 <template>
   <div class="space-y-8 max-w-3xl mx-auto md:space-y-16">
     <header>
-      <h1 class="mb-2 text-2xl font-bold">Blog</h1>
-      <p class="">The place where I am sharing my thoughts, experience, knowledge.</p>
+      <h1 class="mb-2 text-2xl font-bold">{{ $t('blog.title') }}</h1>
+      <p class="">{{ $t('blog.desc') }}.</p>
     </header>
     <blog />
   </div>

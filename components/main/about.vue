@@ -5,14 +5,13 @@
       <span class="text-xs">&amp; Backend Developer</span>
     </h1>
     <p class="mb-8 text-lg leading-relaxed">
-      Howdy, I am Alexandr. I am building web applications using
+      {{ $t('home.about[0]') }}
       <template v-for="s in stacks.filter((_, i) => i !== stacks.length - 1)" :key="s.title">
         <ui-badge-stack :stack="s" />
         {{ ' ' }}
       </template>
-      and
-      <ui-badge-stack :stack="stacks[stacks.length - 1]" />. Connect with me for collaboration, part-time job, or just
-      say hi.
+      {{ $t('misc.and') }}
+      <ui-badge-stack :stack="stacks[stacks.length - 1]" />. {{ $t('home.about[1]') }}.
     </p>
     <ul class="flex items-center flex-wrap gap-2">
       <li v-for="link in links" :key="link.title">

@@ -16,7 +16,7 @@
         <span class="relative inline-flex rounded-full size-3 bg-primary outline outline-base-100"></span>
       </span>
     </div>
-    <p class="whitespace-nowrap font-medium text-sm">Available for part-time</p>
+    <p class="whitespace-nowrap font-medium text-sm">{{ $t('home.part-time') }}</p>
   </div>
 </template>
 

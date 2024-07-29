@@ -2,7 +2,7 @@
   <div>
     <HeaderNavbar>
       <template #start>
-        <Icon name="bx:bxs-cookie" size="1.75rem" />
+        <Icon name="mill:cookie" size="1.75rem" />
         <div class="bg-primary h-5 w-0.5"></div>
 
         <div class="indicator group" :key="route.title" v-for="route in NAVIGATION">

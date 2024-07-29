@@ -1,6 +1,6 @@
 <template>
   <section class="max-w-3xl mx-auto mb-16">
-    <h2 class="text-lg font-medium mb-4">Recent posts</h2>
+    <h2 class="text-lg font-medium mb-4">{{ $t('blog.posts') }}</h2>
     <ul class="divide-y divide-base-content/50 divide-dashed">
       <li
         v-for="post in posts"

@@ -10,7 +10,7 @@
     "dev:host": "nuxt dev --host",
     "prisma:studio": "prisma studio",
     "build": "prisma generate && nuxt build && pnpm run postbuild",
-    "postbuild": "cross-env shell cp .env .output/server/ || copy .env .output\\server\\",
+    "postbuild": "copy .env .output\\server\\",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
@@ -41,7 +41,6 @@
     "@iconify-json/vscode-icons": "1.2.1",
     "@tailwindcss/typography": "0.5.15",
     "@types/crypto-js": "^4.2.2",
-    "cross-env": "^7.0.3",
     "daisyui": "^4.12.10",
     "tailwindcss": "3.4.11"
   }

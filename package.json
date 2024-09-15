@@ -9,8 +9,7 @@
     "dev": "nuxt dev",
     "dev:host": "nuxt dev --host",
     "prisma:studio": "prisma studio",
-    "build": "prisma generate && nuxt build && pnpm run postbuild",
-    "postbuild": "copy .env .output\\server\\",
+    "build": "prisma generate && nuxt build",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },

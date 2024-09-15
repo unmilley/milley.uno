@@ -1,10 +1,11 @@
 <template>
-  <div class="btm-nav btm-nav-sm border-t flex sm:hidden">
+  <div class="btm-nav btm-nav-sm z-50 border-t flex sm:hidden">
     <nuxt-link
       v-for="route in NAVIGATION"
       :key="route.title"
       :to="route.path"
-      :class="{ 'text-primary active': $route.path === route.path }"
+      :class="{ 'text-primary active': $route.path === route.path, 'btn-disabled': route.disabled }"
+      :disabled="route.disabled"
     >
       <Icon :name="route.icon" size="1.2rem" />
       <span class="btm-nav-label">{{ $t(route.title) }}</span>
@@ -14,7 +15,7 @@
       <details class="dropdown dropdown-top dropdown-end" :open="isSettingOpen">
         <summary class="btn-btm-nav pointer-events-none">
           <Icon name="bx:bxs-cog" size="1.2rem" />
-          <span class="btm-nav-label">Settings</span>
+          <span class="btm-nav-label capitalize">{{ $t('settings.title') }}</span>
         </summary>
         <ul
           class="menu dropdown-content ~bg-base-100 backdrop-blur-lg rounded-box w-52 border border-dashed border-base-content z-[1]"

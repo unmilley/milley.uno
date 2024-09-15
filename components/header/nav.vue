@@ -10,7 +10,11 @@
             class="indicator-item indicator-bottom indicator-center badge badge-base badge-xs group-hover:mix-blend-difference"
             v-show="$route.path === route.path"
           ></span>
-          <nuxt-link class="btn btn-sm btn-outline btn-neutral" :to="route.path">
+          <nuxt-link
+            class="btn btn-sm btn-outline btn-neutral"
+            :class="{ 'btn-disabled': route.disabled }"
+            :to="route.path"
+          >
             {{ $t(route.title) }}
           </nuxt-link>
         </div>

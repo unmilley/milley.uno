@@ -1,9 +1,9 @@
 <template>
   <li>
     <details open>
-      <summary>
+      <summary class="capitalize">
         <Icon name="mill:language" size="1.2rem" />
-        Language
+        {{ $t('settings.lang') }}
       </summary>
       <ul>
         <li v-for="locale in locales" :key="locale.code">

@@ -31,4 +31,14 @@ export default {
   misc: {
     and: 'and',
   },
+  settings: {
+    title: 'settings',
+    lang: 'language',
+    theme: {
+      title: 'theme',
+      dark: 'dark',
+      light: 'light',
+      system: 'system',
+    },
+  },
 }

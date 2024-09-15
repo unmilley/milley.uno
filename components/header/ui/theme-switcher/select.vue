@@ -1,15 +1,15 @@
 <template>
   <li>
     <details open>
-      <summary>
+      <summary class="capitalize">
         <Icon name="mill:palette" size="1.25rem" />
-        Theme
+        {{ $t('settings.theme.title') }}
       </summary>
       <ul>
         <li v-for="theme in themes" :key="theme">
           <a @click.prevent.stop="$colorMode.preference = theme" class="capitalize">
             <Icon :name="$colorMode.preference === theme ? 'bx:check-square' : 'bx:square'" size="1.35rem" />
-            {{ theme }}
+            {{ $t(`settings.theme.${theme}`) }}
           </a>
         </li>
       </ul>

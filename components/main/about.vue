@@ -18,6 +18,7 @@
         <nuxt-link
           :title="link.title"
           class="btn btn-ghost btn-sm px-2 group"
+          :class="{ 'btn-disabled': link.disabled }"
           :href="link.path"
           target="_blank"
           rel="noreferrer"
@@ -54,7 +55,7 @@ const stacks = [
 ]
 
 const links = [
-  { title: 'Read.cv', icon: 'ph:read-cv-logo-fill', path: 'https://read.cv/milley' },
+  { title: 'Read.cv', icon: 'ph:read-cv-logo-fill', path: 'https://read.cv/milley', disabled: true },
   { title: 'Github', icon: 'bx:bxl-github', path: 'https://github.com/unmilley' },
 ]
 

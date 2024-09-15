@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed bottom-16 left-[50%] z-[51] translate-x-[-50%]">
+  <div class="fixed bottom-16 left-[50%] z-40 translate-x-[-50%]">
     <button
       type="button"
       @click="like()"

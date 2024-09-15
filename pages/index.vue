@@ -3,7 +3,7 @@
     <main-head />
     <main-about />
     <main-projects />
-    <blog />
+    <!-- <blog /> -->
   </div>
 </template>
 

@@ -3,9 +3,9 @@ import type { Project } from '@/types'
 export const projects: Project[] = [
   {
     title: 'Toddo',
-    image: 'https://toddo-milley.vercel.app/meow/icon-512x512.png',
-    path: 'https://toddo-milley.vercel.app/',
-    source: 'https://github.com/milley69/Toddo',
+    image: 'https://toddo.milley.uno/pwa/icon-512x512.png',
+    path: 'https://toddo.milley.uno/',
+    source: 'https://github.com/unmilley/toddo',
     desc: 'Universal todo list with authorization and database, separate groups for tasks.',
     isDev: false,
   },

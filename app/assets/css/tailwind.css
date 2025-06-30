@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Averia+Sans+Libre&display=swap');
+
+@import 'tailwindcss';
+@plugin 'daisyui' {
+	themes: light --default, dark --prefersdark;
+	root: ':root';
+	exclude: ;
+	logs: false;
+}
+
+@plugin "daisyui/theme" {
+	name: 'light';
+	default: false;
+	prefersdark: false;
+	color-scheme: 'light';
+	--color-base-100: oklch(93.1785% 0.01879 75.31806);
+  --color-base-200: oklch(88% 0.022 75.3);
+  --color-base-300: oklch(78% 0.025 75.3);
+	--color-base-content: oklch(27.8078% 0.029596 256.847952);
+	--color-primary: oklch(56.8902% 0.181221 294.13063);
+	--color-primary-content: oklch(91.378% 0.036244 294.13063);
+	--color-secondary: oklch(69.71% 0.329 342.55);
+	--color-secondary-content: oklch(98.71% 0.0106 342.55);
+	--color-accent: oklch(76.76% 0.184 183.61);
+	--color-accent-content: oklch(15.352% 0.0368 183.61);
+	--color-neutral: oklch(32.1785% 0.02476 255.701624);
+	--color-neutral-content: oklch(89.4994% 0.011585 252.096176);
+	--color-info: oklch(72.06% 0.191 231.6);
+	--color-info-content: oklch(0% 0 0);
+	--color-success: oklch(64.8% 0.15 160);
+	--color-success-content: oklch(0% 0 0);
+	--color-warning: oklch(84.71% 0.199 83.87);
+	--color-warning-content: oklch(0% 0 0);
+	--color-error: oklch(71.76% 0.221 22.18);
+	--color-error-content: oklch(0% 0 0);
+	--radius-selector: 0.5rem;
+	--radius-field: 0.25rem;
+	--radius-box: 1rem;
+	--size-selector: 0.25rem;
+	--size-field: 0.21875rem;
+	--border: 1px;
+	--depth: 1;
+	--noise: 0;
+}
+
+@plugin "daisyui/theme" {
+	name: 'dark';
+	default: true;
+	prefersdark: false;
+	color-scheme: 'dark';
+  --color-base-100: oklch(24.477% 0.006 285.976);
+  --color-base-200: oklch(40% 0.003 286);
+  --color-base-300: oklch(55% 0.001 286);
+  --color-base-content: oklch(74.648% 0.022 264.436);
+  --color-primary: oklch(88.569% 0.099 80.904);
+  --color-primary-content: oklch(17.714% 0.02 80.904);
+  --color-secondary: oklch(74.8% 0.26 342.55);
+  --color-secondary-content: oklch(14.96% 0.052 342.55);
+  --color-accent: oklch(74.51% 0.167 183.61);
+  --color-accent-content: oklch(14.902% 0.033 183.61);
+  --color-neutral: oklch(55% 0 0);
+  --color-neutral-content: oklch(74.648% 0.022 264.436);
+	--color-info: oklch(72.06% 0.191 231.6);
+	--color-info-content: oklch(0% 0 0);
+	--color-success: oklch(64.8% 0.15 160);
+	--color-success-content: oklch(0% 0 0);
+	--color-warning: oklch(84.71% 0.199 83.87);
+	--color-warning-content: oklch(0% 0 0);
+	--color-error: oklch(71.76% 0.221 22.18);
+	--color-error-content: oklch(0% 0 0);
+	--radius-selector: 0.5rem;
+	--radius-field: 0.25rem;
+	--radius-box: 1rem;
+	--size-selector: 0.25rem;
+	--size-field: 0.21875rem;
+	--border: 1px;
+	--depth: 1;
+	--noise: 0;
+}
+
+@theme {
+	--font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif
+	--font-averia: '"Averia Sans Libre"', var(--font-sans);
+}
+
+@theme {
+  --breakpoint-sm: '576px',
+  --breakpoint-md: '768px',
+  --breakpoint-lg: '992px',
+  --breakpoint-xl: '1200px',
+  --breakpoint-2xl: '1536px',
+}
+
+.qwe {
+	border: 1px solid salmon;
+}
+.qwe2 > * {
+	border: 1px solid salmon;
+}
+.qwe3 * {
+	border: 1px solid salmon;
+}
+
+html {
+	::selection {
+		background: var(--color-primary);
+		color: var(--color-primary-content);
+	}
+}
+
+@layer base {
+	html,
+	body {
+		overflow-x: hidden;
+	}
+	html {
+		scrollbar-width: none !important;
+		-ms-overflow-style: none;
+	}
+
+	html body::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+@layer utilities {
+	.tooltip-base {
+	  --tt-bg: var(--color-base-100) ;
+	  > .tooltip-content, &[data-tip]:before {
+	    color: var(--color-base-content) ;
+	  }
+	}
+	.tooltip-base-content {
+	  --tt-bg: var(--color-base-content) ;
+	  > .tooltip-content, &[data-tip]:before {
+	    color: var(--color-base-100) ;
+	  }
+	}
+
+	.menu-base {
+		--menu-active-fg: var(--color-neutral-content);
+		--menu-active-bg: var(--color-neutral);
+	}
+}
+
+.skeleton-2 {
+  border-radius: var(--radius-box, 0.5rem 8px);
+  will-change: background-position;
+  animation: skeleton 1.8s ease-in-out infinite;
+  background-image: linear-gradient(
+    105deg,
+    transparent 0%,
+    transparent 40%,
+    oklch(from var(--color-base-content) l c h / 0.05) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 200% auto;
+  background-repeat: no-repeat;
+  background-position-x: -50%;
+}
+@media (prefers-reduced-motion) {
+  .skeleton-2 {
+    animation-duration: 15s;
+  }
+}

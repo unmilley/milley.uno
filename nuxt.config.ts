@@ -1,84 +1,86 @@
-// import { readFileSync } from 'fs'
-// import { homedir } from 'os'
-// import { join } from 'path'
+import tailwindcss from '@tailwindcss/vite'
+const devServer = { https: true }
 
 const baseUrl = 'https://milley.uno'
 
-const devServer = {
-  https: true,
-  // https: {
-  //   key: readFileSync(join(homedir(), '.https', 'localhost-key.pem')).toString(),
-  //   cert: readFileSync(join(homedir(), '.https', 'localhost.pem')).toString(),
-  // },
-}
-
 export default defineNuxtConfig({
-  compatibilityDate: '2024-04-03',
-  devtools: { enabled: false, telemetry: false, timeline: { enabled: false } },
-  modules: [
-    '@nuxt/content',
-    '@nuxt/image',
-    '@nuxtjs/tailwindcss',
-    '@nuxt/icon',
-    '@nuxtjs/color-mode',
-    '@vueuse/nuxt',
-    '@nuxtjs/i18n',
-    '@nuxt/scripts',
-    '@nuxtjs/seo',
-  ],
-  tailwindcss: {
-    cssPath: ['@/assets/css/tailwind.css', { injectPosition: 'first' }],
-    configPath: '@/tailwind.config.ts',
-    viewer: false,
-  },
-  colorMode: {
-    preference: 'system',
-    fallback: 'dark',
-    classSuffix: '',
-    dataValue: 'theme',
-    storageKey: 'theme',
-  },
-  icon: {
-    mode: 'svg',
-    collections: ['bx', 'bxs', 'ph', 'vscode-icons'],
-    customCollections: [{ prefix: 'mill', dir: './assets/icons' }],
-  },
-  i18n: {
-    vueI18n: '@/i18n.config.ts',
-    lazy: true,
-    langDir: 'src/i18n',
-    defaultLocale: 'en',
-    strategy: 'no_prefix',
-    dynamicRouteParams: false,
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'un_i18n',
-      // redirectOn: 'root', // recommended
-      cookieCrossOrigin: true,
-    },
-    locales: [
-      { code: 'en', name: 'English', iso: 'en_US', file: 'en_US.ts' },
-      { code: 'ru', name: 'Русский', iso: 'ru_RU', file: 'ru_RU.ts' },
-    ],
-  },
-  runtimeConfig: {
-    public: {
-      gaTrackingId: process.env.NUXT_FB_MEASUREMENT_ID,
-      umamiId: process.env.NUXT_UMAMI_ID,
-    },
-  },
+	compatibilityDate: '2025-05-15',
+	devtools: { enabled: false },
+	future: {
+		compatibilityVersion: 4,
+	},
+	modules: ['@vueuse/nuxt', '@nuxt/icon', '@nuxt/scripts', '@nuxtjs/color-mode', '@nuxtjs/i18n', '@nuxtjs/seo'],
 
-  devServer,
-  site: {
-    url: baseUrl,
-    name: 'Alexandr Lyadov',
-    description: 'Frontend Developer (〜￣▽￣)〜',
-  },
-  schemaOrg: {
-    identity: {
-      type: 'Person',
-      name: 'Alexandr Lyadov',
-      url: baseUrl,
-    },
-  },
+	css: ['@/assets/css/tailwind.css'],
+	imports: {
+		dirs: ['./types'],
+	},
+
+	components: {
+		dirs: [
+			{
+				path: '~/components/ui',
+				pathPrefix: false,
+				global: true,
+			},
+			'~/components',
+		],
+	},
+
+	colorMode: {
+		preference: 'system',
+		fallback: 'dark',
+		classSuffix: '',
+		dataValue: 'theme',
+		storageKey: 'theme',
+		storage: 'cookie',
+	},
+	icon: {
+		mode: 'svg',
+		collections: ['bx', 'bxs', 'ph', 'vscode-icons'],
+		customCollections: [{ prefix: 'mill', dir: './app/assets/icons' }],
+	},
+
+	runtimeConfig: {
+		public: {
+			gaTrackingId: process.env.NUXT_FB_MEASUREMENT_ID,
+			umamiId: process.env.NUXT_UMAMI_ID,
+		},
+	},
+
+	vite: {
+		plugins: [tailwindcss()],
+	},
+
+	i18n: {
+		bundle: {
+			optimizeTranslationDirective: false,
+		},
+		lazy: true,
+		strategy: 'no_prefix',
+		detectBrowserLanguage: {
+			useCookie: true,
+			cookieKey: 'un_i18n',
+			cookieCrossOrigin: true,
+		},
+		defaultLocale: 'en',
+		locales: [
+			{ code: 'en', name: 'English', iso: 'en_US', file: 'en_US.ts' },
+			{ code: 'ru', name: 'Русский', iso: 'ru_RU', file: 'ru_RU.ts' },
+		],
+	},
+
+	site: {
+		url: baseUrl,
+		name: 'Alexandr Lyadov',
+		description: 'Frontend Developer (〜￣▽￣)〜',
+	},
+	schemaOrg: {
+		identity: {
+			type: 'Person',
+			name: 'Alexandr Lyadov',
+			url: baseUrl,
+		},
+	},
+	devServer,
 })

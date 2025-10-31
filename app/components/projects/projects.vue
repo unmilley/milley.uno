@@ -2,7 +2,7 @@
 	<PatternDirection v-slot="{ elementIsVisible, direction }">
 		<PatternBackground
 			class="min-h-dvh w-full"
-			:animate="false && elementIsVisible"
+			:animate="!isMobile && elementIsVisible"
 			:direction="direction"
 			:speed="25000"
 			variant="dot"
@@ -54,4 +54,6 @@
 import { projects } from '@/src/constants/projects'
 
 const { data: packages, status } = await useFetch('/api/npm')
+
+const isMobile = useMobile()
 </script>

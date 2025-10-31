@@ -6,9 +6,6 @@ const baseUrl = 'https://milley.uno'
 export default defineNuxtConfig({
 	compatibilityDate: '2025-05-15',
 	devtools: { enabled: false },
-	future: {
-		compatibilityVersion: 4,
-	},
 	modules: ['@vueuse/nuxt', '@nuxt/icon', '@nuxt/scripts', '@nuxtjs/color-mode', '@nuxtjs/i18n', '@nuxtjs/seo'],
 
 	css: ['@/assets/css/tailwind.css'],
